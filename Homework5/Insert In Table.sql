@@ -1,0 +1,10 @@
+INSERT INTO homework6.people (age, salary, passport, address, "dateOfBirthday", "dateTimeCreate", "timeToLunch")
+            VALUES (23, 32.2, 'sadad', 'dasafsa', '2024-01-10 +03', '2024-01-22 23:42:43', '23:47:20');
+INSERT INTO homework6.people (age, salary, passport, address, "dateOfBirthday", "dateTimeCreate", "timeToLunch")
+            VALUES (18, 32.1, 'sadadad', 'dasafsadd', '2024-01-10 +03', '2024-01-22 23:42:43', '23:10:20');
+INSERT INTO homework6.people (age, salary, passport, address, "dateOfBirthday", "dateTimeCreate", "timeToLunch")
+            VALUES (10, 132.2, 'Nope', 'Nope', '2023-10-10 +03', '2024-01-22 23:42:43', '23:47:20');
+INSERT INTO homework6.people (age, salary, passport, address, "dateOfBirthday", "dateTimeCreate", "timeToLunch")
+            VALUES (40, 3.2, 'sadad', 'dasafsa', '2024-01-10 +03', '2024-01-22 23:42:43', '23:47:20');
+INSERT INTO homework6.people (age, salary, passport, address, "dateOfBirthday", "dateTimeCreate", "timeToLunch")
+            VALUES (55, 320.2, 'sadad', 'dasafsa', '2024-01-10 +03', '2024-01-22 23:42:41', '23:47:20');

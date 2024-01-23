@@ -1,0 +1,1 @@
+SELECT * FROM jd2lessons.homework6.people WHERE age>=21 ORDER BY "dateTimeCreate";
