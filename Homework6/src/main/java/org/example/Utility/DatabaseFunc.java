@@ -1,5 +1,6 @@
 package org.example.Utility;
 
+import lombok.Getter;
 import org.example.TemplateSql.InsertTemplates;
 import org.example.TemplateSql.Statements;
 
@@ -14,6 +15,7 @@ import java.util.regex.Matcher;
 
 public class DatabaseFunc {
 
+    @Getter
     private static final Connection connection = JDBCProvider.getConnection();
     private static final Statement statement;
 
@@ -26,10 +28,6 @@ public class DatabaseFunc {
         }
     }
 
-    public static Connection getConnection() {
-        return connection;
-    }
-
     public static void recreateTable() throws SQLException {
         connection.setAutoCommit(false);
         try {
@@ -40,37 +38,9 @@ public class DatabaseFunc {
         }
     }
 
-    public static void insertData() {
-        try (PreparedStatement preparedStatement = connection.prepareStatement(Statements.INSERT_PEOPLE_PREPARE_STATEMENT)) {
-
-            connection.setAutoCommit(false);
-
-            try {
-                InsertTemplates.insertPeople(preparedStatement, 23, 32.2f, "sadad", "dasafsa", Date.valueOf("2024-01-10"),
-                        Timestamp.valueOf("2024-01-22 23:42:43.000000"), Time.valueOf("23:47:20"));
-                InsertTemplates.insertPeople(preparedStatement, 18, 32.1f, "sadadad", "dasafsadd", Date.valueOf("2024-01-10"),
-                        Timestamp.valueOf("2024-01-22 23:42:43.000000"), Time.valueOf("23:10:20"));
-                InsertTemplates.insertPeople(preparedStatement, 10, 132.2f, "Nope", "Nope", Date.valueOf("2023-10-10"),
-                        Timestamp.valueOf("2024-01-22 23:42:43.000000"), Time.valueOf("23:47:20"));
-                InsertTemplates.insertPeople(preparedStatement, 40, 3.2f, "sadad", "dasafsa", Date.valueOf("2024-01-10"),
-                        Timestamp.valueOf("2024-01-22 23:42:43.000000"), Time.valueOf("23:47:20"));
-                InsertTemplates.insertPeople(preparedStatement, 55, 320.2f, "sadad", "dasafsa", Date.valueOf("2024-01-10"),
-                        Timestamp.valueOf("2024-01-22 23:42:41.000000"), Time.valueOf("23:47:20"));
-                preparedStatement.executeBatch();
-                connection.commit();
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-                connection.rollback();
-            }
-
-        } catch (SQLException e) {
-            throw new RuntimeException();
-        }
-    }
-
     public static void selectOnAge(Integer age) throws SQLException {
         ResultSet resultSet = statement.executeQuery(
-                "SELECT * FROM jd2lessons.homework6.people WHERE age>=" + age + " ORDER BY \"dateTimeCreate\"");
+                "SELECT * FROM jd2lessons.people WHERE age>=" + age + " ORDER BY \"dateTimeCreate\"");
         while (resultSet.next()) {
             System.out.println(resultSet.getString(2) + " | " + resultSet.getString(3)
                     + " | " + resultSet.getString(4) + " | " + resultSet.getString(5)

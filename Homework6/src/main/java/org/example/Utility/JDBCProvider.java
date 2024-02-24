@@ -20,17 +20,18 @@ public class JDBCProvider {
     private static final String user = getValue(user_key);
     private static final String password = getValue(password_key);
 
-    private static String getValue(String key){
+    private static String getValue(String key) {
         return resource.getString(key);
     }
 
-    public static Connection getConnection(){
-        try{
+    public static Connection getConnection() {
+        try {
             if (connection == null) {
                 connection = DriverManager.getConnection(url, user, password);
+                connection.setAutoCommit(false);
             }
             return connection;
-        }catch (SQLException e){
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
@@ -38,7 +39,7 @@ public class JDBCProvider {
     public static void closeConnection() {
         try {
             connection.close();
-        } catch (SQLException e){
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
