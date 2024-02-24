@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FileManager {
-    public static <T extends Serializable> void writeObjects (List<T> objects, String outFilePath) {
+    public static <T extends Serializable> void writeObjects(List<T> objects, String outFilePath) {
         try (ObjectOutputStream outputStream = new ObjectOutputStream(Files.newOutputStream(Paths.get(outFilePath)))) {
             objects.forEach(o -> {
                 try {
@@ -21,7 +21,6 @@ public class FileManager {
             e.printStackTrace();
         }
     }
-
 
 
     public static List<Object> readObjects(String inFilePath) {

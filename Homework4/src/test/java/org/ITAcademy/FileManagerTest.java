@@ -33,7 +33,7 @@ public class FileManagerTest {
     }
 
     @BeforeAll
-    public static void writeObjects(){
+    public static void writeObjects() {
 
         try (ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(Paths.get(OBJECTS_FILE_PATH)))) {
             oos.writeObject(PERSON_1);
@@ -44,7 +44,7 @@ public class FileManagerTest {
     }
 
     @Test
-    public void fileManagerTest(){
+    public void fileManagerTest() {
 
         List<Person> expected = new ArrayList<>(List.of(PERSON_1, PERSON_2));
         FileManager.writeObjects(expected, FILE_PATH);

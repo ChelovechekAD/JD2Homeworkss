@@ -23,7 +23,7 @@ public class Main {
         FileManager.writeObjects(personList, FILE_PATH);
 
         System.out.println("\nSTART READING...\n");
-        List<String> persons =  FileManager.readObjects(FILE_PATH).stream()
+        List<String> persons = FileManager.readObjects(FILE_PATH).stream()
                 .map(p -> ((Person) p).getSurname() + " " + ((Person) p).getName())
                 .collect(Collectors.toList());
 
