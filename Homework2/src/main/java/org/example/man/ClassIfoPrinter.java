@@ -20,7 +20,7 @@ public class ClassIfoPrinter {
         List<Constructor<?>> constructors = List.of(objectClass.getDeclaredConstructors());
         constructors.forEach(constructor -> constructor.setAccessible(true));
         constructors.forEach(constructor -> System.out.println("Constructor access modifier: " + hasModifier(constructor.getModifiers()) + ", constructor name: "
-                + constructor.getName() +", parameters: " + Arrays.toString(constructor.getParameterTypes())));
+                + constructor.getName() + ", parameters: " + Arrays.toString(constructor.getParameterTypes())));
         System.out.println();
 
         List<Method> methods = List.of(objectClass.getDeclaredMethods());
