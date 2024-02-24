@@ -18,9 +18,9 @@ class MainTest {
         Skill skill = new Skill("java core", 22);
         Student student = new Student(studentName, Constants.TYPE1);
         student.setTalentValue(talentValue);
-        StringBuilder expected = new StringBuilder(studentName + ", Тип "+ student.getType() +", талант: " + String.format("%.1f", talentValue)
+        StringBuilder expected = new StringBuilder(studentName + ", Тип " + student.getType() + ", талант: " + String.format("%.1f", talentValue)
                 + ", общее время на обучение: " + String.format("%.1f", timeToStudy) + ": ");
-        for(int i = 0; i < 4-student.getType(); i++){
+        for (int i = 0; i < 4 - student.getType(); i++) {
             expected.append(PrinterTemplatesGenerator.generateTemplateForStudyOutput(i, timeForOneAction));
         }
         StringBuilder actual = student.studentLearnNewSkill(skill);
@@ -33,9 +33,9 @@ class MainTest {
         Skill skill = new Skill("java core", 22);
         Student student = new Student(studentName, Constants.TYPE2);
         student.setTalentValue(talentValue);
-        StringBuilder expected = new StringBuilder(studentName + ", Тип "+ student.getType() +", талант: " + String.format("%.1f", talentValue)
+        StringBuilder expected = new StringBuilder(studentName + ", Тип " + student.getType() + ", талант: " + String.format("%.1f", talentValue)
                 + ", общее время на обучение: " + String.format("%.1f", timeToStudy) + ": ");
-        for(int i = 0; i < 4-student.getType(); i++){
+        for (int i = 0; i < 4 - student.getType(); i++) {
             expected.append(PrinterTemplatesGenerator.generateTemplateForStudyOutput(i, timeForOneAction));
         }
         StringBuilder actual = student.studentLearnNewSkill(skill);
@@ -48,9 +48,9 @@ class MainTest {
         Skill skill = new Skill("java core", 22);
         Student student = new Student(studentName, Constants.TYPE3);
         student.setTalentValue(talentValue);
-        StringBuilder expected = new StringBuilder(studentName + ", Тип "+ student.getType() +", талант: " + String.format("%.1f", talentValue)
+        StringBuilder expected = new StringBuilder(studentName + ", Тип " + student.getType() + ", талант: " + String.format("%.1f", talentValue)
                 + ", общее время на обучение: " + String.format("%.1f", timeToStudy) + ": ");
-        for(int i = 0; i < 4-student.getType(); i++){
+        for (int i = 0; i < 4 - student.getType(); i++) {
             expected.append(PrinterTemplatesGenerator.generateTemplateForStudyOutput(i, timeForOneAction));
         }
         StringBuilder actual = student.studentLearnNewSkill(skill);

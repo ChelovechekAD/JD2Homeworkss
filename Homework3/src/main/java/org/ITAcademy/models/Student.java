@@ -14,16 +14,23 @@ public class Student {
     public Student(String name, int type) {
         this.name = name;
         this.type = type;
-        switch (type){
-            case 1: studyTimeMultiplier = DURATION_OF_STUDY_MULTIPLIER_TYPE1; break;
-            case 2: studyTimeMultiplier = DURATION_OF_STUDY_MULTIPLIER_TYPE2; break;
-            case 3: studyTimeMultiplier = DURATION_OF_STUDY_MULTIPLIER_TYPE3; break;
-            default: studyTimeMultiplier = 0;
+        switch (type) {
+            case 1:
+                studyTimeMultiplier = DURATION_OF_STUDY_MULTIPLIER_TYPE1;
+                break;
+            case 2:
+                studyTimeMultiplier = DURATION_OF_STUDY_MULTIPLIER_TYPE2;
+                break;
+            case 3:
+                studyTimeMultiplier = DURATION_OF_STUDY_MULTIPLIER_TYPE3;
+                break;
+            default:
+                studyTimeMultiplier = 0;
         }
     }
 
 
-    public StringBuilder studentLearnNewSkill(Skill skill){
+    public StringBuilder studentLearnNewSkill(Skill skill) {
         int countOfActions = 4 - type;
         double durationOfStudy = Math.round(skill.getTimeToStudy()
                 * this.studyTimeMultiplier
@@ -34,7 +41,7 @@ public class Student {
                 + ", Тип " + this.type
                 + ", талант: " + String.format("%.1f", this.talentValue)
                 + ", общее время на обучение: " + String.format("%.1f", durationOfStudy) + ": ");
-        for (int i = 0; i < countOfActions; i++){
+        for (int i = 0; i < countOfActions; i++) {
             output.append(PrinterTemplatesGenerator.generateTemplateForStudyOutput(i, durationOfStudyOnePart));
         }
 
