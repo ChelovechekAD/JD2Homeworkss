@@ -13,4 +13,12 @@ public interface Constants {
 
     Pattern COMMENT_PATTERN = Pattern.compile("–.*|/\\*(.|[\\r\\n])*?\\*/");
     String sqlScriptPath = "src/main/java/org/example/SqlScripts/recreateDatabase.sql";
+    String TIME_TO_LUNCH_COLUMN_NAME = "timeToLunch";
+    String DATE_TIME_CREATE_COLUMN_NAME = "dateTimeCreate";
+    String DATE_OF_BIRTHDAY_COLUMN_NAME = "dateOfBirthday";
+    String ADDRESS_COLUMN_NAME = "address";
+    String PASSPORT_COLUMN_NAME = "passport";
+    String SALARY_COLUMN_NAME = "salary";
+    String AGE_COLUMN_NAME = "age";
+    String ID_COLUMN_NAME = "id";
 }

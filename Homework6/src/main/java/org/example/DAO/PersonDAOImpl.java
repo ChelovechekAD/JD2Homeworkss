@@ -3,6 +3,7 @@ package org.example.DAO;
 import org.example.DTO.PersonDTO;
 import org.example.TemplateSql.InsertTemplates;
 import org.example.TemplateSql.Statements;
+import org.example.Utility.Constants;
 import org.example.Utility.JDBCProvider;
 
 import java.sql.*;
@@ -80,14 +81,14 @@ public class PersonDAOImpl implements PersonDAO {
 
     private PersonDTO buildPersonDTO(ResultSet resultSet) throws SQLException {
         return PersonDTO.builder()
-                .id(resultSet.getInt(1))
-                .age(resultSet.getInt(2))
-                .salary(resultSet.getDouble(3))
-                .passport(resultSet.getString(4))
-                .address(resultSet.getString(5))
-                .dateOfBirthday(resultSet.getDate(6))
-                .dateTimeCreate(resultSet.getTimestamp(7))
-                .timeToLunch(resultSet.getTime(8))
+                .id(resultSet.getInt(Constants.ID_COLUMN_NAME))
+                .age(resultSet.getInt(Constants.AGE_COLUMN_NAME))
+                .salary(resultSet.getDouble(Constants.SALARY_COLUMN_NAME))
+                .passport(resultSet.getString(Constants.PASSPORT_COLUMN_NAME))
+                .address(resultSet.getString(Constants.ADDRESS_COLUMN_NAME))
+                .dateOfBirthday(resultSet.getDate(Constants.DATE_OF_BIRTHDAY_COLUMN_NAME))
+                .dateTimeCreate(resultSet.getTimestamp(Constants.DATE_TIME_CREATE_COLUMN_NAME))
+                .timeToLunch(resultSet.getTime(Constants.TIME_TO_LUNCH_COLUMN_NAME))
                 .build();
     }
 }

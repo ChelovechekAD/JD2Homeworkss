@@ -15,26 +15,27 @@ public class App {
 
     public static void main(String[] args) throws SQLException {
 
-        PersonDAOImpl personDAO = new PersonDAOImpl();
+        PersonDAO personDAO = new PersonDAOImpl();
 
         //DATABASE OPERATIONS PART
         DatabaseFunc.recreateTable();
-        PersonDTO person = PersonDTO.builder()
-                .age(20)
-                .address("TEST")
-                .salary(1234.2)
-                .passport("test")
-                .dateTimeCreate(Timestamp.valueOf("2014-01-11 11:00:00"))
-                .dateOfBirthday(Date.valueOf("2014-01-11"))
-                .timeToLunch(Time.valueOf("11:00:00"))
-                .build();
-        personDAO.save(person);
-        PersonDTO personDTO = personDAO.get(6);
-        personDAO.delete(7);
+
+        List<PersonDTO> inputList = PersonDTO.generatePersonsList(5);
+        inputList.stream()
+                .map(p -> {
+                    try {
+                        return personDAO.save(p);
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                })
+                .forEach(System.out::println);
+        PersonDTO personDTO = personDAO.get(4);
         System.out.println(personDTO + "\n");
         personDTO.setAddress("NopeUpdate");
         personDAO.update(personDTO);
-        List<PersonDTO> personDTOList = personDAO.selectAllByAge(40);
+        System.out.println("___AGE_UPPER_21___");
+        List<PersonDTO> personDTOList = personDAO.selectAllByAge(21);
         personDTOList.forEach(System.out::println);
 
 
