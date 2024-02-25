@@ -12,10 +12,11 @@ import java.util.stream.IntStream;
 
 public class MockUtil {
 
-    private MockUtil(){
+    private MockUtil() {
 
     }
-    public static List<PersonDTO> createListPersons(int count){
+
+    public static List<PersonDTO> createListPersons(int count) {
         Random random = new Random();
         return IntStream.range(0, count)
                 .mapToObj(i -> PersonDTO.builder()

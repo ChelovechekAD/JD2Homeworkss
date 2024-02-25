@@ -5,6 +5,7 @@ public class MockConst {
     private MockConst() {
 
     }
+
     public static final int COUNT_OF_PERSON = 5;
     public static final String BY_AGE = "age";
     public static final String BY_DATE_TIME_CREATE = "dateTimeCreate";

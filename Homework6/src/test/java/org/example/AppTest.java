@@ -6,6 +6,7 @@ import org.example.DAO.HibernatePersonDAOImpl;
 import org.example.DTO.PersonDTO;
 import org.example.Utility.HibernateUtil;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import javax.persistence.EntityManager;
@@ -20,7 +21,7 @@ public class AppTest {
 
 
     @Test
-    public void save(){
+    public void save() {
 
         HibernatePersonDAO hibernatePersonDAO = new HibernatePersonDAOImpl();
         EntityManager entityManager = HibernateUtil.getEntityManager();
@@ -28,12 +29,12 @@ public class AppTest {
         List<PersonDTO> generatedList = MockUtil.createListPersons(MockConst.COUNT_OF_PERSON);
         List<PersonDTO> findList = generatedList.stream()
                 .map(hibernatePersonDAO::save)
-                .map(p->entityManager.find(PersonDTO.class, p.getId()))
+                .map(p -> entityManager.find(PersonDTO.class, p.getId()))
                 .collect(Collectors.toList());
         entityManager.close();
 
         IntStream.range(0, MockConst.COUNT_OF_PERSON)
-                .forEach(i->{
+                .forEach(i -> {
                     PersonDTO genP = generatedList.get(i);
                     PersonDTO findP = findList.get(i);
                     assertNotNull(genP);
@@ -45,7 +46,7 @@ public class AppTest {
     }
 
     @Test
-    public void find(){
+    public void find() {
         EntityManager entityManager = HibernateUtil.getEntityManager();
         HibernatePersonDAO hibernatePersonDAO = new HibernatePersonDAOImpl();
 
@@ -57,7 +58,7 @@ public class AppTest {
 
 
         List<PersonDTO> filteredDTOListByAge = personDTOList.stream()
-                .filter(p->p.getAge() > AGE_CONDITION)
+                .filter(p -> p.getAge() > AGE_CONDITION)
                 .sorted(Comparator.comparing(PersonDTO::getDateTimeCreate))
                 .collect(Collectors.toList());
 

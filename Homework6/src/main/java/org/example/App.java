@@ -17,7 +17,7 @@ import static org.example.Utility.Constants.*;
 
 public class App {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         HibernatePersonDAO hibernatePersonDAO = new HibernatePersonDAOImpl();
 

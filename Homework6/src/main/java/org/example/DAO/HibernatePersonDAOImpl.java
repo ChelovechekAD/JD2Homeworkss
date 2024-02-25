@@ -19,7 +19,7 @@ public class HibernatePersonDAOImpl implements HibernatePersonDAO {
         try {
             em.persist(person);
             em.getTransaction().commit();
-        } catch (Exception e){
+        } catch (Exception e) {
             em.getTransaction().rollback();
         }
         em.close();
