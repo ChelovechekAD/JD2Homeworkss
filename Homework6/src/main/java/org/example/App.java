@@ -30,6 +30,7 @@ public class App {
                 findByColumn(AGE_COLUMN_NAME, AGE_TO_SELECT_FROM_DB, COLUMN_NAME_DATE_TIME_CREATE);
         personDTOList.forEach(System.out::println);
 
+        shutdown();
     }
 
     private static List<PersonDTO> generatePersonsList(int count) {
