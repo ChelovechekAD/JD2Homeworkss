@@ -7,11 +7,12 @@ import javax.persistence.*;
 @Data
 @Entity
 @NoArgsConstructor
-@ToString
+@ToString(callSuper = true)
+@EqualsAndHashCode
 @DiscriminatorValue("W")
 @PrimaryKeyJoinColumn(name = "task_id")
 @Table(name = "worktask")
-public class WorkTask extends Task{
+public class WorkTask extends Task {
     @Column
     private Double cost;
 

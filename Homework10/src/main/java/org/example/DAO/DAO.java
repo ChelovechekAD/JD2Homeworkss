@@ -3,13 +3,18 @@ package org.example.DAO;
 import java.io.Serializable;
 import java.util.List;
 
-public interface DAO<T extends Serializable>{
+public interface DAO<T extends Serializable> {
 
     T save(T t);
-    T get(Integer id, Class<T> tClass);
-    List<T> getAllByFieldValue(String str);
+
+    T get(Integer id);
+
+    <R extends T> List<T> getAllByFieldValue(String attr, String embeddedTableName, String value, Class<R> tClass);
+
     void update(T t);
-    void deleteById(Integer id, Class<T> tClass);
-    void deleteByFieldValue(String name);
+
+    boolean deleteById(Integer id);
+
+    <R> boolean deleteAllByFieldValue(String attr, String embeddedTableName, String value, Class<R> tClass);
 
 }

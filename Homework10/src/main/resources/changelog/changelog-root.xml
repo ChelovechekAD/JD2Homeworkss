@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.25.xsd">
+
+    <include file="changelog-tables/26.02.2024-create-hometask-v1.0.xml" relativeToChangelogFile="true"/>
+    <include file="changelog-tables/26.02.2024-create-task-v1.0.xml" relativeToChangelogFile="true"/>
+    <include file="changelog-tables/26.02.2024-create-worktask-v1.0.xml" relativeToChangelogFile="true"/>
+
+</databaseChangeLog>
