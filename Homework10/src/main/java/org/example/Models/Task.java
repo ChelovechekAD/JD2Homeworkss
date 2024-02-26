@@ -10,8 +10,8 @@ import java.io.Serializable;
 @Entity
 @NoArgsConstructor
 //@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-//@Inheritance(strategy = InheritanceType.JOINED)
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.JOINED)
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "TASK_TYPE",
         discriminatorType = DiscriminatorType.CHAR)
 @DiscriminatorValue("T")
