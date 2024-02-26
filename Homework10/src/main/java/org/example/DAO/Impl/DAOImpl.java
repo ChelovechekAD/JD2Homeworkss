@@ -40,9 +40,7 @@ public abstract class DAOImpl<T extends Serializable> implements DAO<T> {
 
     @Override
     public T get(Integer id) {
-        T out = null;
-        out = transactionHelper.find(getClazz(), id);
-        return out;
+        return transactionHelper.find(getClazz(), id);
     }
 
     @Override

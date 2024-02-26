@@ -21,19 +21,22 @@ import static org.example.utilities.MockConstants.LIST_OF_DESCRIPTIONS;
 
 public class MockUtils {
 
-    public static List<Task> generateTasksList(String type){
-        switch (type){
-            case TASK_TYPE: return generate(EntityGenerators.generateTask());
-            case HOME_TASK_TYPE: return generate(EntityGenerators.generateHomeTask());
-            case WORK_TASK_TYPE: return generate(EntityGenerators.generateWorkTask());
+    public static List<Task> generateTasksList(String type) {
+        switch (type) {
+            case TASK_TYPE:
+                return generate(EntityGenerators.generateTask());
+            case HOME_TASK_TYPE:
+                return generate(EntityGenerators.generateHomeTask());
+            case WORK_TASK_TYPE:
+                return generate(EntityGenerators.generateWorkTask());
         }
         return null;
     }
 
-    public static List<Task> generateRandomTasksList(){
+    public static List<Task> generateRandomTasksList() {
         Random random = new Random();
         return IntStream.range(0, COUNT_OF_TASK_RANDOM_GEN)
-                .mapToObj(i->generateSingleTask(random.nextInt(3)+1))
+                .mapToObj(i -> generateSingleTask(random.nextInt(3) + 1))
                 .collect(Collectors.toList());
 
     }
@@ -43,12 +46,16 @@ public class MockUtils {
                 .mapToObj(i -> method.get())
                 .collect(Collectors.toList());
     }
-    public static Task generateSingleTask(int type_value){
+
+    public static Task generateSingleTask(int type_value) {
         HomeTask test = null;
-        switch (type_value){
-            case 1: return EntityGenerators.generateTask().get();
-            case 2: test = EntityGenerators.generateHomeTask().get(); // --
-            case 3: return EntityGenerators.generateWorkTask().get();
+        switch (type_value) {
+            case 1:
+                return EntityGenerators.generateTask().get();
+            case 2:
+                test = EntityGenerators.generateHomeTask().get(); // --
+            case 3:
+                return EntityGenerators.generateWorkTask().get();
         }
         return test;
     }

@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 @ToString(callSuper = true)
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = true)
 @DiscriminatorValue("W")
 @PrimaryKeyJoinColumn(name = "task_id")
 @Table(name = "worktask")

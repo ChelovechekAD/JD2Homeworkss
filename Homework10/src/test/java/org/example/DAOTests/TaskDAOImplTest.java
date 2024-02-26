@@ -22,19 +22,19 @@ public class TaskDAOImplTest {
     private List<Task> randomTaskList = MockUtils.generateRandomTasksList();
 
     @AfterAll
-    public static void closeHiber(){
+    public static void closeHiber() {
         HibernateUtil.close();
     }
 
     @Test
-    public void testSave(){
+    public void testSave() {
         randomTaskList.forEach(taskDAO::save);
         List<Integer> idList = randomTaskList.stream()
                 .map(Task::getId)
                 .collect(Collectors.toList());
         assertIterableEquals(randomTaskList,
                 idList.stream()
-                        .map(p->taskDAO.get(p))
+                        .map(p -> taskDAO.get(p))
                         .collect(Collectors.toList()));
     }
 
