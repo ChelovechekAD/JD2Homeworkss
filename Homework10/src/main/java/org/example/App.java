@@ -1,7 +1,7 @@
 package org.example;
 
-import org.example.DAO.TaskDAO;
 import org.example.DAO.Impl.TaskDAOImpl;
+import org.example.DAO.TaskDAO;
 import org.example.Models.HomeTask;
 import org.example.Models.Task;
 import org.example.Models.WorkTask;

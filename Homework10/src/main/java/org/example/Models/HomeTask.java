@@ -10,7 +10,6 @@ import javax.persistence.*;
 import java.sql.Date;
 
 
-
 @Data
 @Entity
 @NoArgsConstructor

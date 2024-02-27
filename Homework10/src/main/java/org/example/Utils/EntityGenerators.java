@@ -5,17 +5,12 @@ import org.example.Models.HomeTask;
 import org.example.Models.Task;
 import org.example.Models.WorkTask;
 
-import java.util.Random;
 import java.util.function.Supplier;
 
 import static org.example.Utils.Constants.*;
 
 public class EntityGenerators {
 
-    private static final int TASK_NUMBER_BOUND = 10;
-    private static final int TWO_NUMBER_AFTER_DOT_EXTRACTOR_VALUE = 100;
-    private static final int MAX_COST_BOUND = 100000;
-    private static final int MIN_COST_BOUND = 10000;
 
     public static Supplier<HomeTask> generateHomeTask() {
         return () -> {

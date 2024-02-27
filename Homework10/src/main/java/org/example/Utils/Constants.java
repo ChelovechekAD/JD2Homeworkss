@@ -16,6 +16,11 @@ public final class Constants {
     public static final int COUNT_OF_TASK_GENERATE = 10;
     public static final Random random = new Random();
 
+    public static final int TASK_NUMBER_BOUND = 10;
+    public static final int TWO_NUMBER_AFTER_DOT_EXTRACTOR_VALUE = 100;
+    public static final int MAX_COST_BOUND = 100000;
+    public static final int MIN_COST_BOUND = 10000;
+
     private Constants() {
 
     }

@@ -2,7 +2,6 @@ package org.example.DAOTests;
 
 import org.example.DAO.Impl.TaskDAOImpl;
 import org.example.DAO.TaskDAO;
-import org.example.Models.HomeTask;
 import org.example.Models.Task;
 import org.example.Utils.HibernateUtil;
 import org.example.utilities.MockConstants;
@@ -10,9 +9,7 @@ import org.example.utilities.MockUtils;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 
-import java.util.Comparator;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -22,19 +19,19 @@ public class TaskDAOImplTest {
     private List<Task> randomTaskList = MockUtils.generateRandomTasksList();
 
     @AfterAll
-    public static void closeHiber(){
+    public static void closeHiber() {
         HibernateUtil.close();
     }
 
     @Test
-    public void testSave(){
+    public void testSave() {
         randomTaskList.forEach(taskDAO::save);
         List<Integer> idList = randomTaskList.stream()
                 .map(Task::getId)
                 .collect(Collectors.toList());
         assertIterableEquals(randomTaskList,
                 idList.stream()
-                        .map(p->taskDAO.get(p))
+                        .map(p -> taskDAO.get(p))
                         .collect(Collectors.toList()));
     }
 
