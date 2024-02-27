@@ -19,7 +19,6 @@ public class EntityGenerators {
 
     public static Supplier<HomeTask> generateHomeTask() {
         return () -> {
-            Random random = new Random();
             HomeTask homeTask = new HomeTask();
             homeTask.setDescription(LIST_OF_DESCRIPTIONS[random.nextInt(LIST_OF_DESCRIPTIONS.length)]);
             homeTask.setName(TASK_TEXT + random.nextInt(TASK_NUMBER_BOUND));
@@ -32,18 +31,17 @@ public class EntityGenerators {
 
     public static Supplier<WorkTask> generateWorkTask() {
         return () -> {
-            Random random = new Random();
             WorkTask workTask = new WorkTask();
             workTask.setName(TASK_TEXT + random.nextInt(TASK_NUMBER_BOUND));
             workTask.setDescription(LIST_OF_DESCRIPTIONS[random.nextInt(LIST_OF_DESCRIPTIONS.length)]);
-            workTask.setCost(random.nextInt(MAX_COST_BOUND - MIN_COST_BOUND) + MIN_COST_BOUND + ((double) Math.round(random.nextFloat() * TWO_NUMBER_AFTER_DOT_EXTRACTOR_VALUE) / TWO_NUMBER_AFTER_DOT_EXTRACTOR_VALUE));
+            workTask.setCost(random.nextInt(MAX_COST_BOUND - MIN_COST_BOUND) + MIN_COST_BOUND
+                    + ((double) Math.round(random.nextFloat() * TWO_NUMBER_AFTER_DOT_EXTRACTOR_VALUE) / TWO_NUMBER_AFTER_DOT_EXTRACTOR_VALUE));
             return workTask;
         };
     }
 
     public static Supplier<Task> generateTask() {
         return () -> {
-            Random random = new Random();
             Task task = new WorkTask();
             task.setName(TASK_TEXT + random.nextInt(TASK_NUMBER_BOUND));
             task.setDescription(LIST_OF_DESCRIPTIONS[random.nextInt(LIST_OF_DESCRIPTIONS.length)]);
