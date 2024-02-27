@@ -1,6 +1,6 @@
 package org.ITAcademy.utilites;
 
-public class Constants {
+public final class Constants {
     public static final String SOMETHING_WENT_WRONG_DURING_EXECUTE_TRANSACTIONS_METHODS =
             "Something went wrong during execute transaction's methods.";
     public static final String ENTITY_MANAGER_IS_NOT_ALIVE = "Entity Manager is not alive.";
@@ -19,4 +19,8 @@ public class Constants {
     public static final int PEOPLE_AGE_MIN_BOUND = 10;
     public static final int ADDRESS_HOUSE_NUM_MAX_BOUND = 40;
     public static final int ADDRESS_HOUSE_NUM_MIN_BOUND = 1;
+
+    private Constants(){
+
+    }
 }
