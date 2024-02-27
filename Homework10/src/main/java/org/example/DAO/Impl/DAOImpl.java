@@ -16,7 +16,7 @@ import java.util.Optional;
 public abstract class DAOImpl<T extends Serializable> implements DAO<T> {
 
 
-    TransactionHelper<T> transactionHelper;
+    protected TransactionHelper<T> transactionHelper;
 
     {
         transactionHelper = new TransactionHelper<>();
