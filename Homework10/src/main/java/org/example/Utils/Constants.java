@@ -18,7 +18,7 @@ public final class Constants {
     public static final int TWO_NUMBER_AFTER_DOT_EXTRACTOR_VALUE = 100;
     public static final int MAX_COST_BOUND = 100000;
     public static final int MIN_COST_BOUND = 10000;
-    public static final Random random = new Random();
+    public static final Random RANDOM = new Random();
 
     private Constants() {
 
