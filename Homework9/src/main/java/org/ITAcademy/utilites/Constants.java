@@ -1,5 +1,7 @@
 package org.ITAcademy.utilites;
 
+import java.util.Random;
+
 public final class Constants {
     public static final String SOMETHING_WENT_WRONG_DURING_EXECUTE_TRANSACTIONS_METHODS =
             "Something went wrong during execute transaction's methods.";
@@ -13,6 +15,8 @@ public final class Constants {
     public static final Integer COUNT_OF_STREETS_NAME = LIST_OF_STREETS_NAME.length;
     public static final Integer COUNT_OF_NAMES = LIST_OF_NAMES.length;
     public static final Integer COUNT_OF_SURNAMES = LIST_OF_SURNAMES.length;
+
+    public static final Random RANDOM = new Random();
 
     public static final int COUNT_OF_OBJECT_EACH_TYPE = 5;
     public static final int PEOPLE_AGE_MAX_BOUND = 30;
