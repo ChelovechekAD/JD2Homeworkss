@@ -12,6 +12,9 @@ public class AddressDAOImpl extends DAOImpl<Address> implements AddressDAO {
     @Override
     public Address increaseHomeNum(int id, int increment) {
         Address address = transactionHelper.find(getClazz(), id);
+        if (address == null) {
+            return null;
+        }
         address.setHouseNum(address.getHouseNum() + increment);
         transactionHelper.begin();
         try {

@@ -24,4 +24,7 @@ public class People implements Serializable {
     private String surname;
     @Column
     private Integer age;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "address_id")
+    private Address address;
 }

@@ -41,7 +41,7 @@
                     <changeLogDirectory>src\main\resources\changelog\</changeLogDirectory>
                     <changeSetAuthor>Chelovek</changeSetAuthor>
                     <changeSetId>1</changeSetId>
-                    <outputChangeLogFile>src\main\resources\changelog\changelog-v1.0\generated.xml</outputChangeLogFile>
+                    <outputChangeLogFile>src\main\resources\changelog\changelogs\generated.xml</outputChangeLogFile>
                     <changeLogFile>src\main\resources\changelog\changelog-root.xml</changeLogFile>
                 </configuration>
                 <executions>

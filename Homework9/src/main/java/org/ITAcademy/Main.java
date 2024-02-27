@@ -10,6 +10,7 @@ import org.ITAcademy.utilites.Constants;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -22,6 +23,8 @@ public class Main {
         AddressDAO addressDAO = new AddressDAOImpl();
         PeopleDAO peopleDAO = new PeopleDAOImpl();
 
+        Random random = new Random();
+
         //Create #Task1
         List<People> peopleList = IntStream.range(0, Constants.COUNT_OF_OBJECT_EACH_TYPE)
                 .mapToObj(i -> Objects.requireNonNull(generateObject(People.class)))
@@ -31,8 +34,11 @@ public class Main {
                 .mapToObj(i -> Objects.requireNonNull(generateObject(Address.class)))
                 .collect(Collectors.toList());
 
-        peopleList.forEach(peopleDAO::create);
+        peopleList.forEach(people -> people.setAddress(addressList.get(random.nextInt(addressList.size()))));
+
         addressList.forEach(addressDAO::create);
+        peopleList.forEach(peopleDAO::create);
+
 
         //Increase #Task2
         List<People> peopleListMod = peopleList.stream()
