@@ -6,15 +6,17 @@ import org.ITAcademy.utilites.TransactionHelper;
 import java.io.Serializable;
 
 public abstract class DAOImpl<T extends Serializable> implements DAO<T> {
-    protected abstract Class<T> getClazz();
     protected final TransactionHelper<T> transactionHelper = new TransactionHelper<>();
+
+    protected abstract Class<T> getClazz();
+
     @Override
     public T create(T obj) {
         transactionHelper.begin();
         try {
             transactionHelper.persist(obj);
             transactionHelper.commit();
-        }catch (Exception e){
+        } catch (Exception e) {
             transactionHelper.rollback();
             e.printStackTrace();
         }
@@ -32,7 +34,7 @@ public abstract class DAOImpl<T extends Serializable> implements DAO<T> {
         try {
             transactionHelper.merge(obj);
             transactionHelper.commit();
-        }catch (Exception e){
+        } catch (Exception e) {
             transactionHelper.rollback();
             e.printStackTrace();
         }
@@ -46,7 +48,7 @@ public abstract class DAOImpl<T extends Serializable> implements DAO<T> {
         try {
             transactionHelper.remove(obj);
             transactionHelper.commit();
-        }catch (Exception e){
+        } catch (Exception e) {
             transactionHelper.rollback();
             return false;
         }

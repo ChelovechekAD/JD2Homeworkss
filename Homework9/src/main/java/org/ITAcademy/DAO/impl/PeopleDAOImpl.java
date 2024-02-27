@@ -13,12 +13,12 @@ public class PeopleDAOImpl extends DAOImpl<People> implements PeopleDAO {
     @Override
     public People increaseAge(int id, int increment) {
         People people = transactionHelper.find(getClazz(), id);
-        people.setAge(people.getAge()+increment);
+        people.setAge(people.getAge() + increment);
         transactionHelper.begin();
         try {
             transactionHelper.merge(people);
             transactionHelper.commit();
-        }catch (Exception e){
+        } catch (Exception e) {
             transactionHelper.rollback();
             e.printStackTrace();
             return null;

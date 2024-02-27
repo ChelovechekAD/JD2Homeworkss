@@ -11,6 +11,8 @@ import java.io.Serializable;
 @Data
 @EqualsAndHashCode
 @ToString
+@Builder
+@Table(name = "address")
 public class Address implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

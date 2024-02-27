@@ -9,11 +9,11 @@ public class HibernateUtil {
     private static final EntityManagerFactory FACTORY =
             Persistence.createEntityManagerFactory("homework9");
 
-    public static EntityManager getEntityManager(){
+    public static EntityManager getEntityManager() {
         return FACTORY.createEntityManager();
     }
 
-    public static void closeFactory(){
+    public static void closeFactory() {
         FACTORY.close();
     }
 

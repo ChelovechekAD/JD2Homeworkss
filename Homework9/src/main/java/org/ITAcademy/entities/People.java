@@ -10,7 +10,9 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Data
 @EqualsAndHashCode
+@Builder
 @ToString
+@Table(name = "people")
 public class People implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

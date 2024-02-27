@@ -1,7 +1,6 @@
 package org.ITAcademy.DAO.impl;
 
 import org.ITAcademy.DAO.AddressDAO;
-import org.ITAcademy.DAO.DAO;
 import org.ITAcademy.entities.Address;
 
 public class AddressDAOImpl extends DAOImpl<Address> implements AddressDAO {
@@ -13,12 +12,12 @@ public class AddressDAOImpl extends DAOImpl<Address> implements AddressDAO {
     @Override
     public Address increaseHomeNum(int id, int increment) {
         Address address = transactionHelper.find(getClazz(), id);
-        address.setHouseNum(address.getHouseNum()+increment);
+        address.setHouseNum(address.getHouseNum() + increment);
         transactionHelper.begin();
-        try{
+        try {
             transactionHelper.merge(address);
             transactionHelper.commit();
-        }catch (Exception e){
+        } catch (Exception e) {
             transactionHelper.rollback();
             e.printStackTrace();
             return null;
