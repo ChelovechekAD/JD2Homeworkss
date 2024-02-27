@@ -1,24 +1,15 @@
 package org.example.utilities;
 
-import org.example.Models.Address;
 import org.example.Models.HomeTask;
 import org.example.Models.Task;
-import org.example.Utils.Constants;
 import org.example.Utils.EntityGenerators;
 
-import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static org.example.Utils.Constants.*;
-import static org.example.Utils.Constants.TOWN_TEXT;
 import static org.example.utilities.MockConstants.*;
-import static org.example.utilities.MockConstants.LIST_OF_DESCRIPTIONS;
-import static org.example.utilities.MockConstants.random;
 
 public class MockUtils {
 
