@@ -2,12 +2,20 @@ package org.ITAcademy.utilites;
 
 import javax.persistence.EntityManager;
 
-public class TransactionHelper<T> {
+public final class TransactionHelper {
 
+    private static TransactionHelper transactionHelper;
     private EntityManager entityManager;
 
-    public TransactionHelper() {
+    private TransactionHelper() {
         this.entityManager = HibernateUtil.getEntityManager();
+    }
+
+    public static TransactionHelper getTransactionHelper() {
+        if (transactionHelper == null) {
+            transactionHelper = new TransactionHelper();
+        }
+        return transactionHelper;
     }
 
     public void begin() {
@@ -23,7 +31,6 @@ public class TransactionHelper<T> {
             return;
         }
         entityManager.getTransaction().commit();
-        entityManager.close();
     }
 
     public void rollback() {
@@ -34,7 +41,6 @@ public class TransactionHelper<T> {
             return;
         }
         entityManager.getTransaction().rollback();
-        entityManager.close();
     }
 
     private void transactionIsActive() throws Exception {
@@ -60,7 +66,7 @@ public class TransactionHelper<T> {
         return entityManager;
     }
 
-    public void persist(T obj) {
+    public <T> void persist(T obj) {
         try {
             validateRequest();
         } catch (Exception e) {
@@ -70,12 +76,12 @@ public class TransactionHelper<T> {
         entityManager.persist(obj);
     }
 
-    public T find(Class<T> tClass, Integer id) {
+    public <T> T find(Class<T> tClass, Integer id) {
         getEntityManagerIfClosed();
         return entityManager.find(tClass, id);
     }
 
-    public void remove(T obj) {
+    public <T> void remove(T obj) {
         try {
             validateRequest();
         } catch (Exception e) {
@@ -85,7 +91,7 @@ public class TransactionHelper<T> {
         entityManager.remove(obj);
     }
 
-    public void merge(T obj) {
+    public <T> void merge(T obj) {
         try {
             validateRequest();
         } catch (Exception e) {

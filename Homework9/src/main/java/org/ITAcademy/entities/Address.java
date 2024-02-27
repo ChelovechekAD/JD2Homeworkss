@@ -4,13 +4,15 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@EqualsAndHashCode
-@ToString
+@EqualsAndHashCode(exclude = "peopleList")
+@ToString(exclude = "peopleList")
 @Builder
 @Table(name = "address")
 public class Address implements Serializable {
@@ -22,5 +24,18 @@ public class Address implements Serializable {
     private String street;
     @Column(name = "house_num")
     private Integer houseNum;
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "addressList")
+    private List<People> peopleList = new ArrayList<>();
 
+    public void setPeoples(List<People> peoples) {
+        this.peopleList = peoples;
+    }
+
+    public void addPeople(People people) {
+        peopleList.add(people);
+    }
+
+    public void deletePerson(People people) {
+        peopleList.remove(people);
+    }
 }

@@ -6,7 +6,7 @@ import org.ITAcademy.utilites.TransactionHelper;
 import java.io.Serializable;
 
 public abstract class DAOImpl<T extends Serializable> implements DAO<T> {
-    protected final TransactionHelper<T> transactionHelper = new TransactionHelper<>();
+    protected final TransactionHelper transactionHelper = TransactionHelper.getTransactionHelper();
 
     protected abstract Class<T> getClazz();
 

@@ -1,8 +1,6 @@
 package org.ITAcademy.DAO;
 
-import org.ITAcademy.DAO.impl.AddressDAOImpl;
 import org.ITAcademy.DAO.impl.PeopleDAOImpl;
-import org.ITAcademy.entities.Address;
 import org.ITAcademy.entities.People;
 import org.ITAcademy.utilities.MockConstants;
 import org.junit.jupiter.api.BeforeEach;

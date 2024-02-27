@@ -1,21 +1,16 @@
 package org.ITAcademy.DAO;
 
 import org.ITAcademy.DAO.impl.AddressDAOImpl;
-import org.ITAcademy.DAO.impl.PeopleDAOImpl;
 import org.ITAcademy.entities.Address;
-import org.ITAcademy.utilites.HibernateUtil;
 import org.ITAcademy.utilities.MockConstants;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static org.ITAcademy.utilites.Generators.*;
+import static org.ITAcademy.utilites.Generators.generateObject;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DAOImplTest {

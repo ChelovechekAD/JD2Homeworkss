@@ -7,9 +7,11 @@ import org.ITAcademy.DAO.impl.PeopleDAOImpl;
 import org.ITAcademy.entities.Address;
 import org.ITAcademy.entities.People;
 import org.ITAcademy.utilites.Constants;
+import org.ITAcademy.utilites.HibernateUtil;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -18,6 +20,8 @@ import static org.ITAcademy.utilites.Generators.generateObject;
 public class Main {
 
     public static void main(String[] args) {
+
+        Random random = new Random();
 
         AddressDAO addressDAO = new AddressDAOImpl();
         PeopleDAO peopleDAO = new PeopleDAOImpl();
@@ -31,8 +35,21 @@ public class Main {
                 .mapToObj(i -> Objects.requireNonNull(generateObject(Address.class)))
                 .collect(Collectors.toList());
 
+        peopleList.forEach(people -> addressList.forEach(address -> {
+            people.addAddress(address);
+            address.addPeople(people);
+        }));
+
+        IntStream.range(0, peopleList.size())
+                .forEach(i -> {
+                    int n = random.nextInt(addressList.size());
+                    peopleList.get(i).addAddress(addressList.get(n));
+                    addressList.get(n).addPeople(peopleList.get(i));
+                });
+
         peopleList.forEach(peopleDAO::create);
         addressList.forEach(addressDAO::create);
+
 
         //Increase #Task2
         List<People> peopleListMod = peopleList.stream()
@@ -57,5 +74,7 @@ public class Main {
         //Delete #Task3
         peopleDAO.delete(peopleList.get(0).getId());
         addressDAO.delete(addressList.get(0).getId());
+
+        HibernateUtil.closeFactory();
     }
 }
