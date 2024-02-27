@@ -5,7 +5,7 @@ public final class MockConstants {
     public static final int COUNT_OF_GENERATED_OBJECT = 5;
     public static final String STRING_TEXT_UPDATE_TEST = "TEST";
 
-    private MockConstants(){
+    private MockConstants() {
 
     }
 }

@@ -20,7 +20,7 @@ public final class Constants {
     public static final int ADDRESS_HOUSE_NUM_MAX_BOUND = 40;
     public static final int ADDRESS_HOUSE_NUM_MIN_BOUND = 1;
 
-    private Constants(){
+    private Constants() {
 
     }
 }
