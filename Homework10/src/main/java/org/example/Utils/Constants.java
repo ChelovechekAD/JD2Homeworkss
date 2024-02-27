@@ -1,6 +1,8 @@
 package org.example.Utils;
 
-public class Constants {
+import java.util.Random;
+
+public final class Constants {
     public static final String SOMETHING_WENT_WRONG_DURING_EXECUTE_TRANSACTIONS_METHODS =
             "Something went wrong during execute transaction's methods.";
     public static final String ENTITY_MANAGER_IS_NOT_ALIVE = "Entity Manager is not alive.";
@@ -12,4 +14,13 @@ public class Constants {
     public static final String TOWN_TEXT = "Minsk";
     public static final String TASK_TEXT = "Task";
     public static final int COUNT_OF_TASK_GENERATE = 10;
+    public static final int TASK_NUMBER_BOUND = 10;
+    public static final int TWO_NUMBER_AFTER_DOT_EXTRACTOR_VALUE = 100;
+    public static final int MAX_COST_BOUND = 100000;
+    public static final int MIN_COST_BOUND = 10000;
+    public static final Random random = new Random();
+
+    private Constants() {
+
+    }
 }
