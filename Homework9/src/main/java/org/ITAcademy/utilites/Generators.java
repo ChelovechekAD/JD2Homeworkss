@@ -14,7 +14,6 @@ import static org.ITAcademy.utilites.Constants.*;
 
 public final class Generators {
 
-    private static final Random RANDOM = new Random();
 
     private Generators() {
 
