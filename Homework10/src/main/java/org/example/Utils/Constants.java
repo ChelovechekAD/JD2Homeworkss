@@ -14,7 +14,7 @@ public final class Constants {
     public static final String TOWN_TEXT = "Minsk";
     public static final String TASK_TEXT = "Task";
     public static final int COUNT_OF_TASK_GENERATE = 10;
-    public static final Random random = new Random();
+    public static final Random RANDOM = new Random();
 
     public static final int TASK_NUMBER_BOUND = 10;
     public static final int TWO_NUMBER_AFTER_DOT_EXTRACTOR_VALUE = 100;

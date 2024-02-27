@@ -27,7 +27,7 @@ public class MockUtils {
 
     public static List<Task> generateRandomTasksList() {
         return IntStream.range(0, COUNT_OF_TASK_RANDOM_GEN)
-                .mapToObj(i -> generateSingleTask(random.nextInt(3) + 1))
+                .mapToObj(i -> generateSingleTask(RANDOM.nextInt(3) + 1))
                 .collect(Collectors.toList());
 
     }
